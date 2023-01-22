@@ -5,6 +5,11 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+// set templating engine
+// "view engine" is a reserved keyword but set() can be used to set vars as well
+app.set("view engine", "pug");
+app.set("views", "views");  // can change default path node looks for html
+
 const adminData = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 
