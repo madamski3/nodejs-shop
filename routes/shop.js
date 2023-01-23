@@ -8,9 +8,10 @@ const rootDir = require("../util/path");
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
-    console.log(adminData.products);
     // res.sendFile(path.join(rootDir, "views", "shop.html"));
-    res.render('shop'); // views folder and pug templating engine already defined as defaults
+
+    // views folder and pug templating engine already defined as defaults
+    res.render("shop", { products: adminData.products, pageTitle: "Shop", path: "/" });
 });
 
 module.exports = router;
