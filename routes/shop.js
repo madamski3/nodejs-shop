@@ -11,7 +11,12 @@ router.get("/", (req, res, next) => {
     // res.sendFile(path.join(rootDir, "views", "shop.html"));
 
     // views folder and pug templating engine already defined as defaults
-    res.render("shop", { products: adminData.products, pageTitle: "Shop", path: "/" });
+    res.render("shop", {
+        products: adminData.products,
+        pageTitle: "Shop",
+        path: "/",
+        hasProducts: adminData.products.length > 0,   // Handlebars can't run logic so must be done here
+    });
 });
 
 module.exports = router;

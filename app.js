@@ -2,13 +2,17 @@ const path = require("path");
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const expressHandlebars = require("express-handlebars");
 
 const app = express();
 
-// set templating engine
+// register handlebars as templating engine
+app.engine("handlebars", expressHandlebars.engine({defaultLayout: null}));
+
+// set templating engine we will use
 // "view engine" is a reserved keyword but set() can be used to set vars as well
-app.set("view engine", "pug");
-app.set("views", "views"); // can change default path node looks for html
+app.set("view engine", "handlebars");
+app.set("views", "views"); // can change default path node checks for html
 
 const adminData = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
