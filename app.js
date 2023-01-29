@@ -7,7 +7,10 @@ const expressHandlebars = require("express-handlebars");
 const app = express();
 
 // register handlebars as templating engine
-app.engine("handlebars", expressHandlebars.engine({defaultLayout: null}));
+app.engine(
+    "handlebars",
+    expressHandlebars.engine({ defaultLayout: "main-layout", layoutsDir: "views/layouts/", extname: "handlebars" })
+);
 
 // set templating engine we will use
 // "view engine" is a reserved keyword but set() can be used to set vars as well

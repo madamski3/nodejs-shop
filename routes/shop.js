@@ -16,6 +16,8 @@ router.get("/", (req, res, next) => {
         pageTitle: "Shop",
         path: "/",
         hasProducts: adminData.products.length > 0,   // Handlebars can't run logic so must be done here
+        activeShop: true,
+        productCSS: true, 
     });
 });
 
